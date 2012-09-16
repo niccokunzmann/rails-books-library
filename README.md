@@ -19,3 +19,20 @@ everything was created by rails and its generators.
 3. `rails generate controller home index` to generate the first controller
 4. `rails generate scaffold Book title:string author:string` to generate a model Book with a title and an author
 5. *Do this locally*: run `rake db:migrate` to migrate the database
+
+## What to do
+
+###Summary of the tasks the app is supposed to support:
+* enter books
+* lend them to students
+
+###Requirements
+* using a relation database for persistence
+* run on heroku.com
+
+###Questions
+* How is persistence achieved in rails?
+* Migrations-DSL von Rails?
+* Which assumptions does the framework make?
+* Which assumptions does heroku make?
+
