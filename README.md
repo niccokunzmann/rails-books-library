@@ -9,4 +9,5 @@ Useful links:
 I think we should use this readme or the wiki to gather our insights.
 
 ## Steps so far
-* `rails new rails-books-library` generated the skeleton of the rails app with all necessary folders
+1. `rails new rails-books-library` generated the skeleton of the rails app with all necessary folders
+2. create your own SQLite database with `rake db:create` (see Getting Started above)
