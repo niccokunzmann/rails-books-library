@@ -15,10 +15,11 @@ I think we should use this readme or the wiki to gather our insights.
 everything was created by rails and its generators.
 
 1. `rails new rails-books-library` generated the skeleton of the rails app with all necessary folders
-2. *Do this locally*: create your own SQLite database with `rake db:create` (see Getting Started above)
-3. `rails generate controller home index` to generate the first controller
-4. `rails generate scaffold Book title:string author:string` to generate a model Book with a title and an author
-5. *Do this locally*: run `rake db:migrate` to migrate the database
+1. *Do this locally*: create your own SQLite database with `rake db:create` (see Getting Started above)
+1. `rails generate controller home index` to generate the first controller
+1. `rails generate scaffold Book title:string author:string` to generate a model Book with a title and an author
+1. `rails generate model Comment commenter:string body:text post:references` and then followed the steps in step 7
+1. *Do this locally*: run `rake db:migrate` to migrate the database
 
 ## What to do
 
