@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+
+  http_basic_authenticate_with :name => "name", :password => "password", :except => [:index, :show]
+
   # GET /books
   # GET /books.json
   def index
