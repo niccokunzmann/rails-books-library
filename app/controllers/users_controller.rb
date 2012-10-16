@@ -25,7 +25,8 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-
+    @all_cities = City.all
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @all_cities = City.all
   end
 
   # POST /users
@@ -56,10 +58,18 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+    print "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
+    p params
     @user = User.find(params[:id])
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        @user.cities = []
+        params[:cities].each do |city_id|
+          p "DEBUG!!!!!!!!!! Adding " + city_id + " if neccessary!"
+          @user.cities += [City.find(city_id)] unless @user.cities.include?(City.find(city_id))
+        end if params[:cities]
+
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

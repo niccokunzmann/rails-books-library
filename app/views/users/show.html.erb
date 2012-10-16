@@ -10,6 +10,14 @@
   <%= @user.email %>
 </p>
 
+<h2>Cities</h2>
+
+<ul>
+  <% @user.cities.each do |city| %>
+    <li><%= city.name %> (<%= city.users %>)</li>
+  <% end %>
+</ul>
+
 <br />
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -55,7 +55,7 @@ class CitiesController < ApplicationController
 
   # PUT /cities/1
   # PUT /cities/1.json
-  def update
+  def update   
     @city = City.find(params[:id])
 
     respond_to do |format|
