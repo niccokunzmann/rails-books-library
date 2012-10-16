@@ -15,41 +15,45 @@ users = User.create([
   {
     name: 'User2',
     email: 'email4@web.de'
-  } , 
+  }, 
   {
     name: 'User3',
     email: 'email6@web.de'
-  }  ,
+  },
   {
     name: 'User4',
     email: 'email8@web.de'
-  }  ,
+  },
   {
     name: 'User5',
     email: 'email10@web.de'
-  }  ,
-  ])
+  },
+])
 
 books = Book.create([
   {
     title: 'Thriller', 
     author: 'An Author1',
+	comments: [
+	  Comment.create(body: 'This is really frightening.', commenter: 'Commenter 1'),
+	  Comment.create(body: 'I think it is very funny instead.', commenter: 'Commenter 2')
+	]
   },
   {
     title: 'Love Story',
-    author: 'An Author1',
+    author: 'An Author1'
   },
   {
     title: 'Drama',
-    author: 'An Author2',
+    author: 'An Author2'
   },
   {
     title: 'Comedy',
-    author: 'An Author3',
+    author: 'An Author3'
   },
   {
-    title: 'Zombie Book',
-    author: 'An Author3',
+    title: 'Zombie Book'
+    author: 'An Author3'
   }
 ])
 
