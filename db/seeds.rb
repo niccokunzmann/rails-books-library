@@ -5,3 +5,67 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+users = User.create([
+  {
+    name: 'User1',
+    email: 'email2@web.de'
+  },
+  {
+    name: 'User2',
+    email: 'email4@web.de'
+  } , 
+  {
+    name: 'User3',
+    email: 'email6@web.de'
+  }  ,
+  {
+    name: 'User4',
+    email: 'email8@web.de'
+  }  ,
+  {
+    name: 'User5',
+    email: 'email10@web.de'
+  }  ,
+  ])
+
+books = Book.create([
+  {
+    title: 'Thriller', 
+    author: 'An Author1',
+  },
+  {
+    title: 'Love Story',
+    author: 'An Author1',
+  },
+  {
+    title: 'Drama',
+    author: 'An Author2',
+  },
+  {
+    title: 'Comedy',
+    author: 'An Author3',
+  },
+  {
+    title: 'Zombie Book',
+    author: 'An Author3',
+  }
+])
+
+
+lendings = Lending.create([
+  {
+    user: users[1],
+    book: books[3]
+  },
+  {
+    user: users[3],
+    book: books[2]
+  },
+  {
+    user: users[1],
+    book: books[4]
+  }
+
+])
