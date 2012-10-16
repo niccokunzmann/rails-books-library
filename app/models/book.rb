@@ -10,4 +10,9 @@ class Book < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
 
   has_one :lending
+
+  def to_s
+    title
+  end
+
 end
