@@ -5,6 +5,7 @@ RailsBooksLibrary::Application.routes.draw do
 
   resources :users
   resources :cities
+  resources :lendings
   
   get "home/index"
 
