@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  book: 
+  lendingDate: 2012-10-16
+
+two:
+  user: 
+  book: 
+  lendingDate: 2012-10-16
