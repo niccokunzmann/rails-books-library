@@ -4,6 +4,7 @@ RailsBooksLibrary::Application.routes.draw do
   end
 
   resources :users
+  resources :cities
   
   get "home/index"
 
