@@ -15,3 +15,6 @@
 /tmp
 /.rvmrc
 /README
+
+# Ignore the documentation
+/doc/app
