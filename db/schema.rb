@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016074207) do
+ActiveRecord::Schema.define(:version => 20121016121058) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -23,12 +23,9 @@ ActiveRecord::Schema.define(:version => 20121016074207) do
   create_table "cities", :force => true do |t|
     t.string   "name"
     t.integer  "postal"
-    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "cities", ["user_id"], :name => "index_cities_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -57,6 +54,11 @@ ActiveRecord::Schema.define(:version => 20121016074207) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "users_cities", :id => false, :force => true do |t|
+    t.integer "user_id", :null => false
+    t.integer "city_id", :null => false
   end
 
 end
