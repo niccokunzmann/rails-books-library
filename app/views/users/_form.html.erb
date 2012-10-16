@@ -19,7 +19,15 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  
+  <p>Cities</p>
+  <ul>
+	<% @all_cities.each do |city| %>
+	  <li><%= check_box_tag 'cities[]', city.id, @user.cities.include?(city)%> <%= city.name %> (<%= city.users %>)</li>
+	<% end %>
+  </ul>
   <div class="actions">
+  	
     <%= f.submit %>
   </div>
 <% end %>
