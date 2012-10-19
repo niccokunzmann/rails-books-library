@@ -52,7 +52,7 @@ books = Book.create([
     author: 'An Author3'
   },
   {
-    title: 'Zombie Book'
+    title: 'Zombie Book',
     author: 'An Author3'
   }
 ])

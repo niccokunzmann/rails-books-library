@@ -15,7 +15,7 @@
     <td><%= lending.user %></td>
     <td><%= link_to 'Show', lending %></td>
     <td><%= link_to 'Edit', edit_lending_path(lending) %></td>
-    <td><%= link_to 'Destroy', lending, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', lending, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
