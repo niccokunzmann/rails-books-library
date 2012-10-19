@@ -8,7 +8,7 @@ class LendingsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @lendings }
+      format.json { render :json => @lendings }
     end
   end
 
@@ -19,7 +19,7 @@ class LendingsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @lending }
+      format.json { render :json => @lending }
     end
   end
 
@@ -32,7 +32,7 @@ class LendingsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @lending }
+      format.json { render :json => @lending }
     end
   end
 
@@ -50,11 +50,11 @@ class LendingsController < ApplicationController
 
     respond_to do |format|
       if @lending.save
-        format.html { redirect_to @lending, notice: 'Lending was successfully created.' }
-        format.json { render json: @lending, status: :created, location: @lending }
+        format.html { redirect_to @lending, :notice => 'Lending was successfully created.' }
+        format.json { render :json => @lending, :status => :created, :location => @lending }
       else
-        format.html { render action: "new" }
-        format.json { render json: @lending.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @lending.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -66,11 +66,11 @@ class LendingsController < ApplicationController
 
     respond_to do |format|
       if @lending.update_attributes(params[:lending])
-        format.html { redirect_to @lending, notice: 'Lending was successfully updated.' }
+        format.html { redirect_to @lending, :notice => 'Lending was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @lending.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @lending.errors, :status => :unprocessable_entity }
       end
     end
   end
