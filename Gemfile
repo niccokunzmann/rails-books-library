@@ -36,4 +36,6 @@ gem 'jquery-rails'
 
 # To use debugger
 #gem 'ruby-debug19', :require => 'ruby-debug'
-gem 'debugger', group: [:development, :test]
+if RUBY_ENGINE != "maglev"
+  gem 'debugger', :group => [:development, :test]
+end
