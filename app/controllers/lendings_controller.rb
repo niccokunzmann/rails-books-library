@@ -29,9 +29,8 @@ class LendingsController < ApplicationController
   # GET /lendings/new.json
   def new
     @lending = Lending.new
-    @all_books = Book.all.collect {|book| [book.title, book]}
-    debugger
-    @all_user = User.all.collect {|book| [book.name, book]}
+    @all_books = Book.all.collect {|book| [book.title, book.id]}
+    @all_user = User.all.collect {|book| [book.name, book.id]}
 
     respond_to do |format|
       format.html # new.html.erb
