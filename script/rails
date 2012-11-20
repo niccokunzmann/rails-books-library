@@ -1,17 +1,16 @@
 # This command will automatically be run when you run "rails" with Rails 3 gems installed from the root of your application.
 
 if defined? Maglev
-puts "############################################## 5"
 Exception.install_debug_block do |e|
   msg = e.instance_variable_get(:@_st_messageText)
   case e.class.name
     when 'RubyThrowException', 'Errno::ENOENT', 'LoadError', 'RubyBreakException'
       #ignore
     when 'NoMethodError'
-      puts "-- #{e}    (#{e.class.name})"
-      nil.pause if msg =~ /for Lending/
+      nil.pause if msg =~ /empty/ and msg =~ /NilClass/
     else
-      puts "-- #{e}    (#{e.class.name})"
+	  #ignore
+      #puts "-- #{e}    (#{e.class.name})"
   end
 end
 end

@@ -30,6 +30,7 @@ class LendingsController < ApplicationController
   def new
     @lending = Lending.new
     @all_books = Book.all.collect {|book| [book.title, book]}
+    debugger
     @all_user = User.all.collect {|book| [book.name, book]}
 
     respond_to do |format|
