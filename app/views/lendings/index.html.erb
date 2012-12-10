@@ -11,7 +11,7 @@
 
 <% @lendings.each do |lending| %>
   <tr>
-    <td><%= @lending_book %></td>
+    <td><%= lending.book %></td>
     <td><%= lending.user %></td>
     <td><%= link_to 'Show', lending %></td>
     <td><%= link_to 'Edit', edit_lending_path(lending) %></td>

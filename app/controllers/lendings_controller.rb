@@ -5,8 +5,6 @@ class LendingsController < ApplicationController
   # GET /lendings.json
   def index
     @lendings = Lending.all
-	@lending = @lendings.first
-	@lending_book = @lending.book
 
     respond_to do |format|
       format.html # index.html.erb
