@@ -21,3 +21,4 @@
 
 # Ignore gem mess
 gem*.log
+*.lock
