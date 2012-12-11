@@ -1,5 +1,8 @@
 # This command will automatically be run when you run "rails" with Rails 3 gems installed from the root of your application.
 
+require "maglev-adapter"
+
+
 if defined? Maglev
 Exception.install_debug_block do |e|
   msg = e.instance_variable_get(:@_st_messageText)
