@@ -1,27 +1,29 @@
 module Maglev
   module Base
-    include ActiveModel::MassAssignmentSecurity
-    include ActiveModel::Validations
+    extend ActiveSupport::Concern
+
+    included do
+      include ActiveModel::MassAssignmentSecurity
+      include ActiveModel::Validations
+
+      Maglev::PERSISTENT_ROOT[self] ||= Hash.new
+    end
     # include ActiveRecord::Associations
     # include ActiveRecord::Reflection
 
-    puts "USEFUL INFORMATIONS"
-    puts Maglev::PERSISTENT_ROOT
-    puts self
-    Maglev::PERSISTENT_ROOT[self] ||= Hash.new
-    puts Maglev::PERSISTENT_ROOT
+    module ClassMethods
+      def find(id)
+        Maglev::PERSISTENT_ROOT[self][id]
+      end
 
-    def self.find(id)
-      Maglev::PERSISTENT_ROOT[self][id]
-    end
+      def all
+        Maglev::PERSISTENT_ROOT[self].values
+      end
 
-    def self.all
-      Maglev::PERSISTENT_ROOT[self].values
-    end
-
-    def self.create(*args)
-      x = self.new(*args)
-      x
+      def create(*args)
+        x = self.new(*args)
+        x
+      end
     end
 
   end
