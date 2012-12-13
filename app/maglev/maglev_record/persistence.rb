@@ -5,7 +5,11 @@ module MaglevRecord
 
     module InstanceMethods
       def persisted?
-        false
+        !new_record?
+      end
+
+      def new_record?
+      	!committed?
       end
     end
   end

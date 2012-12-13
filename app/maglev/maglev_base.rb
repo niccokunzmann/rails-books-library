@@ -1,9 +1,6 @@
 require "maglev_record/persistence"
 
 module Maglev
-  # Defining MAGLEV::PERSISTENT_ROOT for testing in standard ruby
-  PERSISTENT_ROOT ||= Hash.new
-
   module Base
     extend ActiveSupport::Concern
 
