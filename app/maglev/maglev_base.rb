@@ -1,4 +1,9 @@
+require "maglev_record/persistence"
+
 module Maglev
+  # Defining MAGLEV::PERSISTENT_ROOT for testing in standard ruby
+  PERSISTENT_ROOT ||= Hash.new
+
   module Base
     extend ActiveSupport::Concern
 
@@ -6,11 +11,10 @@ module Maglev
       include ActiveModel::MassAssignmentSecurity
       include ActiveModel::Validations
       include ActiveModel::AttributeMethods
+      include ::MaglevRecord::Persistence
 
       Maglev::PERSISTENT_ROOT[self] ||= Hash.new
     end
-    # include ActiveRecord::Associations
-    # include ActiveRecord::Reflection
 
     module ClassMethods
       def find(id)
@@ -60,14 +64,14 @@ module Maglev
         generated_attribute_methods.module_eval(
           "def #{attr_name}; read_attribute('#{attr_name}'); end",
            __FILE__, __LINE__)
-  
+
       end
 
 
 
 
       ## Copied from .rbenv/verions/maglev/lib/maglev/gems/1.8/gems/activerecord-3.2.3/lib/active_record/attribute_methods/write.rb
-       
+
       def define_method_attribute=(attr_name)
         if attr_name =~ ActiveModel::AttributeMethods::NAME_COMPILABLE_REGEXP
           generated_attribute_methods.module_eval("def #{attr_name}=(new_value); write_attribute('#{attr_name}', new_value); end", __FILE__, __LINE__)
@@ -103,7 +107,7 @@ module Maglev
     def read_attribute(attr_name)
       @attributes[attr_name]
     end
-    
+
     def write_attribute(attr_name, value)
       @attributes[attr_name] = value
     end
