@@ -2,7 +2,6 @@ require "maglev_base"
 
 class Book
   include Maglev::Base
-  debugger
   attr_accessible :author, :title, :comments
 
   validates :author, :presence => true
@@ -18,9 +17,6 @@ class Book
   end
 
   def self.dummy
-    b = Book.new
-    b.title = "ab"
-    b.author = "cd"
-    b
+    Book.new(:title => "cd", :author => "ab")
   end
 end

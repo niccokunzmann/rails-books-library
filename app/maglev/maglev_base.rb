@@ -24,6 +24,7 @@ module Maglev
 # d.title = "XXX"
 # d.reset
       def memento
+        return if !@memento.nil?
         m = Memento.new
         @attributes.each do |k,v|
           if v.class.included_modules.include? Maglev::Base
@@ -34,6 +35,11 @@ module Maglev
         end
         @memento = m
         m
+      end
+
+      def force_memento
+        @memento = nil
+        memento
       end
 
       def reset
@@ -134,8 +140,7 @@ module Maglev
       @attributes = self.class.initialize_attributes(self.class.default_attributes.dup)
       @attributes_cache = {}
 
-      self._accessible_attributes[:default].each do
-        |attr_name|
+      self._accessible_attributes[:default].each do |attr_name|
         self.class.define_method_attribute(attr_name)
         self.class.define_method_attribute=(attr_name)
         @attributes[attr_name] = nil
@@ -146,10 +151,12 @@ module Maglev
 
     ## Copied from .rbenv/verions/maglev/lib/maglev/gems/1.8/gems/activerecord-3.2.3/lib/active_record/attribute_methods/{write.rb, read.rb}
     def read_attribute(attr_name)
+      memento
       @attributes[attr_name]
     end
 
     def write_attribute(attr_name, value)
+      memento
       @attributes[attr_name] = value
     end
 
