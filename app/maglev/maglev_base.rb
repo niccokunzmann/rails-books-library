@@ -39,7 +39,7 @@ module Maglev
       def reset
         return if @memento.nil?
 
-        @mement.backup.each do |k, v|
+        @memento.backup.each do |k, v|
           @attributes[k] = v
           if v.class.included_modules.include? Maglev::Base
             v.reset

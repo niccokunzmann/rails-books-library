@@ -2,6 +2,7 @@ require "maglev_base"
 
 class Book
   include Maglev::Base
+  debugger
   attr_accessible :author, :title, :comments
 
   validates :author, :presence => true
