@@ -4,8 +4,9 @@ class Book < ActiveRecord::Base
   validates :author, :presence => true
   validates :title,  :presence => true,
                      :length => { :minimum => 5 }
+  validates :author, :uniqueness => true
 
-  #validates :lending, :allow_nil => true 
+  #validates :lending, :allow_nil => true
 
   has_many :comments, :dependent => :destroy
 
