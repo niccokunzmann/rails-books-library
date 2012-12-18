@@ -88,24 +88,6 @@ module Maglev
         Hash.new
       end
 
-      def generate_getter(accessible_attributes)
-        result = Array.new
-        accessible_attributes.each do
-          | attr_name |
-          result << attr_name.to_s
-        end
-        result
-      end
-
-      def generate_setter(accessible_attributes)
-        result = Array.new
-        accessible_attributes.each do
-          | attr_name |
-          result << (attr_name.to_s + "=")
-        end
-        result
-      end
-
       ## Copied from .rbenv/verions/maglev/lib/maglev/gems/1.8/gems/activerecord-3.2.3/lib/active_record/attribute_methods/read.rb
       def define_method_attribute(attr_name)
         generated_attribute_methods.module_eval(
@@ -114,11 +96,7 @@ module Maglev
 
       end
 
-
-
-
       ## Copied from .rbenv/verions/maglev/lib/maglev/gems/1.8/gems/activerecord-3.2.3/lib/active_record/attribute_methods/write.rb
-
       def define_method_attribute=(attr_name)
         if attr_name =~ ActiveModel::AttributeMethods::NAME_COMPILABLE_REGEXP
           generated_attribute_methods.module_eval("def #{attr_name}=(new_value); write_attribute('#{attr_name}', new_value); end", __FILE__, __LINE__)
