@@ -13,6 +13,50 @@ module Maglev
       Maglev::PERSISTENT_ROOT[self] ||= Hash.new
     end
 
+    module InstanceMethods
+      def a
+        puts "a"
+      end
+
+# Test Memento
+# d = Book.dummy
+# d.memento
+# d.title = "XXX"
+# d.reset
+      def memento
+        m = Memento.new
+        @attributes.each do |k,v|
+          if v.class.included_modules.include? Maglev::Base
+            m.backup[k] = v
+          else
+            m.backup[k] = if v == nil then nil else v.clone end
+          end
+        end
+        @memento = m
+        m
+      end
+
+      def reset
+        return if @memento.nil?
+
+        @memento.backup.each do |k, v|
+          @attributes[k] = v
+          if v.class.included_modules.include? Maglev::Base
+            v.reset
+          end
+        end
+        @memento = nil
+        self
+      end
+
+
+      def validate
+        puts "Validating"
+        @memento = nil
+        true
+      end
+    end
+
     module ClassMethods
       def find(id)
         Maglev::PERSISTENT_ROOT[self][id]
