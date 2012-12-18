@@ -16,4 +16,10 @@ class Book
     title
   end
 
+  def self.dummy
+    b = Book.new
+    b.title = "ab"
+    b.author = "cd"
+    b
+  end
 end
