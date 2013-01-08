@@ -1,4 +1,4 @@
-require "maglev_base"
+require "maglev_record"
 
 class Book
   include Maglev::Base
