@@ -1,4 +1,5 @@
-class Comment < ActiveRecord::Base
+class Comment
+  include MaglevRecord::Base
   belongs_to :book
   attr_accessor :body, :commenter
 end
