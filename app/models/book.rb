@@ -1,8 +1,8 @@
 require "maglev_record"
 
 class Book
-  include Maglev::Base
-  attr_accessible :author, :title, :comments
+  include MaglevRecord::Base
+  attr_accessor :author, :title, :comments
 
   validates :author, :presence => true
   validates :title,  :presence => true,
