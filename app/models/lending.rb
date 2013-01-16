@@ -1,3 +1,5 @@
+require "maglev_record"
+
 class Lending 
   include MaglevRecord::Base
   attr_accessor :lendingDate, :user, :book, :book_id, :user_id

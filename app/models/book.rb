@@ -1,6 +1,9 @@
 require "maglev_record"
 
+#puts caller
+
 class Book
+
   include MaglevRecord::Base
   attr_accessor :author, :title, :comments
 
@@ -19,4 +22,9 @@ class Book
   def self.dummy
     Book.new(:title => "cd", :author => "ab")
   end
+
+  def id
+    self.__id__
+  end
+
 end

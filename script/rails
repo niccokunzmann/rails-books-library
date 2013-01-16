@@ -15,8 +15,6 @@ Exception.install_debug_block do |e|
 end
 end
 
-
 APP_PATH = File.expand_path('../../config/application',  __FILE__)
 require File.expand_path('../../config/boot',  __FILE__)
 require 'rails/commands'
-
